@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class MessageFile {
 
