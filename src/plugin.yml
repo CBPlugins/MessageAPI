@@ -1,5 +1,5 @@
 name: MessageAPI
-version: 1.0.0
+version: 1.0.1
 main: org.cbplugins.messageapi.MessageAPI
 author: CBPlugins
 description: This is an API to manage messages in different languages

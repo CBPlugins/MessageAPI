@@ -14,12 +14,14 @@ public class MessageManager {
 	private MessageFile de_DE = null;
 	private MessageFile fr_FR = null;
 	private MessageFile es_ES = null;
+	private MessageFile sv_SE = null;
 	
 	public MessageManager(Plugin plugin) {
 		en_US = new MessageFile(MessageFileType.en_US, plugin.getDescription().getName());
 		de_DE = new MessageFile(MessageFileType.de_DE, plugin.getDescription().getName());
 		fr_FR = new MessageFile(MessageFileType.fr_FR, plugin.getDescription().getName());
 		es_ES = new MessageFile(MessageFileType.es_ES, plugin.getDescription().getName());
+		sv_SE = new MessageFile(MessageFileType.sv_SE, plugin.getDescription().getName());
 	}
 	
 	public void loadFiles() {
@@ -27,6 +29,7 @@ public class MessageManager {
 		de_DE.loadFile();
 		fr_FR.loadFile();
 		es_ES.loadFile();
+		sv_SE.loadFile();
 	}
 	
 	public String getRawMessage(Player player, String key) {
@@ -39,6 +42,8 @@ public class MessageManager {
 			return fr_FR.getRawMessage(key);
 		}else if(l.equalsIgnoreCase("es_ES")) {
 			return es_ES.getRawMessage(key);
+		}else if(l.equalsIgnoreCase("sv_SE")){
+			return sv_SE.getRawMessage(key);
 		}else {
 			return "ERROR: CAN'T GET LANGUAGE";
 		}
@@ -54,6 +59,8 @@ public class MessageManager {
 			return fr_FR.getColoredMessage(key, regex);
 		}else if(l.equalsIgnoreCase("es_ES")) {
 			return es_ES.getColoredMessage(key, regex);
+		}else if(l.equalsIgnoreCase("sv_SE")) {
+			return sv_SE.getColoredMessage(key, regex);
 		}else {
 			return "§cERROR: §4CAN'T GET LANGUAGE";
 		}
@@ -69,6 +76,8 @@ public class MessageManager {
 			return fr_FR.getReplacedMessage(key, replace);
 		}else if(l.equalsIgnoreCase("es_ES")) {
 			return es_ES.getReplacedMessage(key, replace);
+		}else if(l.equalsIgnoreCase("sv_SE")){
+			return sv_SE.getReplacedMessage(key, replace);
 		}else {
 			return "ERROR: CAN'T GET LANGUAGE";
 		}
@@ -84,7 +93,9 @@ public class MessageManager {
 			return fr_FR.getReplacedColoredMessage(key, regex, replace);
 		}else if(l.equalsIgnoreCase("es_ES")) {
 			return es_ES.getReplacedColoredMessage(key, regex, replace);
-		}else {
+		}else if(l.equalsIgnoreCase("sv_SE")) {
+			return sv_SE.getReplacedColoredMessage(key, regex, replace);
+		} else {
 			return "§cERROR: §4CAN'T GET LANGUAGE";
 		}
 	}
