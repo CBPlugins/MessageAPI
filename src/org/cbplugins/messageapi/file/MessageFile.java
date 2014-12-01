@@ -9,14 +9,14 @@ import org.bukkit.ChatColor;
 
 public class MessageFile {
 
-	private MessageFileType type;
+	private String lang;
 	
 	private String subDir;
 	
 	private HashMap<String, String> messages = new HashMap<String, String>();
 	
-	public MessageFile(MessageFileType type, String subDir) {
-		this.type = type;
+	public MessageFile(String lang, String subDir) {
+		this.lang = lang;
 		this.subDir = subDir;
 	}
 	
@@ -26,13 +26,13 @@ public class MessageFile {
 		}else {
 			messages.clear();
 			try{
-				File f = new File("plugins/MessageAPI/"+subDir, type.getFileName());
+				File f = new File("plugins/MessageAPI/"+subDir, lang + ".msg");
 				BufferedReader br = new BufferedReader(new FileReader(f));
 				String line;
 				boolean firstLine = true;
 				while((line = br.readLine()) != null) {
 					if(firstLine) {
-						if(!line.contains(type.getID())) {
+						if(!line.contains(lang)) {
 							break;
 						}else {
 							firstLine = false;
@@ -50,7 +50,7 @@ public class MessageFile {
 	}
 	
 	public boolean checkExisting() {
-		File file = new File("plugins/MessageAPI/"+subDir, type.getFileName());
+		File file = new File("plugins/MessageAPI/"+subDir, lang + ".msg");
 		
 		return file.exists();
 	}
